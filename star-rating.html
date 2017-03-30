@@ -37,7 +37,7 @@
 
 <dom-module id="star-rating">
   <template>
-    <style>
+    <style include="iron-flex">
      :host {
        --star-color: #4775D1 ;
      }
@@ -54,7 +54,7 @@
      }
     </style>
 
-    <div class="layout horizontal center-aligned">
+    <div class="layout horizontal center-center">
 
       <template id="domRepeat" is="dom-repeat" items="{{_stars}}" as="star">
         <template is="dom-if" if="[[readOnly]]">
