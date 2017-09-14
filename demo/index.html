@@ -8,6 +8,7 @@
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
+    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../iron-list/iron-list.html">
@@ -36,14 +37,17 @@
 
       <h3>Template loading</h3>
       <demo-snippet>
-        <template is="dom-bind">
-          <iron-ajax url="stars.json" handle-as="json" last-response="{{stars}}" auto></iron-ajax>
+        <dom-bind>
+          <template>
+            <iron-ajax url="stars.json" handle-as="json" last-response="{{stars}}" auto></iron-ajax>
 
-          <iron-list items="[[stars]]" as="rating">
-            <template>
-              <star-rating rate="[[rating]]" read-only></star-rating>
-            </template>
-        </template>
+            <iron-list items="[[stars]]" as="rating">
+              <template>
+                <star-rating rate="[[rating]]" read-only></star-rating>
+              </template>
+            </iron-list>
+          </template>
+        </dom-bind>
       </demo-snippet>
     </div>
   </body>
