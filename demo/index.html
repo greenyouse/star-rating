@@ -8,15 +8,16 @@
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../../iron-list/iron-list.html">
     <link rel="import" href="../../iron-ajax/iron-ajax.html">
+    <link rel="import" href="../../iron-list/iron-list.html">
+    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
     <link rel="import" href="../star-rating.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-    </style>
+    <custom-style>
+      <style include="demo-pages-shared-styles"></style>
+    </custom-style>
   </head>
   <body>
     <div class="vertical-section-container centered">
@@ -48,6 +49,17 @@
             </iron-list>
           </template>
         </dom-bind>
+
+        <!-- duplicated to show source code -->
+        <template>
+          <iron-ajax url="stars.json" handle-as="json" last-response="{{stars}}" auto></iron-ajax>
+
+          <iron-list items="[[stars]]" as="rating">
+            <template>
+              <star-rating rate="[[rating]]" read-only></star-rating>
+            </template>
+          </iron-list>
+        </template>
       </demo-snippet>
     </div>
   </body>
