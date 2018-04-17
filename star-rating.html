@@ -34,10 +34,7 @@
 
       <template id="stars" is="dom-repeat" items="{{_stars}}" as="star">
         <iron-icon hidden$="[[!readOnly]]" icon="[[star]]"></iron-icon>
-        <paper-icon-button hidden$="[[readOnly]]" id="{{index}}" on-click="_updateRate" icon="[[star]]"></paper-icon-button>
-        <!-- <template is="dom-if" if="[[!readOnly]]">
-             <paper-icon-button disabled$={{readOnly}} id="{{index}}" on-click="_updateRate" icon="[[star]]"></paper-icon-button>
-             </template> -->
+        <paper-icon-button hidden$="[[readOnly]]" id="{{index}}" on-click="_updateRating" icon="[[star]]"></paper-icon-button>
       </template>
     </div>
 
@@ -47,10 +44,10 @@
     * Shows 5 star rating or enables a 5 star rating using paper-icon-button and iron-icon.*
     *
     * ### Usage
-    * Rate can be set as an attribute.
+    * Rating can be set as an attribute.
     *
     * ```html
-    *  <star-rating rate="2.3"></star-rating>
+    *  <star-rating rating="2.3"></star-rating>
     *  ```
     *
     *  ### Styling
@@ -71,7 +68,7 @@
          },
 
          // number of stars assigned for score
-         rate: {
+         rating: {
            type: Number,
            value: 0
          },
@@ -91,15 +88,15 @@
        });
      }
 
-     _updateRate(e) {
+     _updateRating(e) {
        let id = parseInt(e.currentTarget.id);
-       this.rate = id + 1;
+       this.rating = id + 1;
        this._updateStars();
      }
 
      _updateStars() {
-       let int = Math.floor(this.rate);
-       let decimal = this.rate % 1;
+       let int = Math.floor(this.rating);
+       let decimal = this.rating % 1;
 
        for (var i = 0; i < 5; i++) {
          this._stars[i] = "star-border";
