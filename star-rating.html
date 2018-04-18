@@ -157,6 +157,14 @@
        var array = this._stars;
        this._stars = [];
        this._stars = array;
+
+       // update event for changes to star rating
+       var details = {
+         bubbles: true,
+         composed: true,
+         rating: this.rating
+       };
+       this.dispatchEvent(new CustomEvent('star-rating-updated'), details);
      }
 
      _displayDetails(details, readOnly) {
