@@ -36,6 +36,16 @@
          color: var(--star-color, #faca43);
          background-image: url('./right-star.svg');
        }
+
+       .details {
+         margin-left: 1em;
+         color: var(--detail-color,  #999999);
+         font-family: 'Roboto', 'Noto', sans-serif;
+         -webkit-font-smoothing: antialiased;
+         font-size: 16px;
+         font-weight: 400;
+         line-height: 24px;
+       }
       </style>
     </custom-style>
 
@@ -46,9 +56,10 @@
         <paper-icon-button class$="[[star]]" hidden$="[[readOnly]]" id="{{index}}" on-click="_updateRating" icon$="star-icons:[[star]]"></paper-icon-button>
       </template>
 
-      <template is="dom-if" if="[[readOnly]]">
-        <content select='[votes]'></content>
-      </template>
+      <div hidden$="[[!_showDetails]]" class="details">
+        <span>[[rating]]</span>
+        <span>([[votes]])</span>
+      </div>
     </div>
 
   </template>
@@ -69,6 +80,7 @@
     *  ----------------|-------------|----------
     *  `--star-color` | Color set for stars | `#faca43`
     *  `--empty-color` | Color set for blank stars | `#bebebe`
+    *  `--detail-color` | Text color for details | `#999999`
     *
     *  @demo demo/index.html
     */
@@ -77,9 +89,16 @@
 
      static get properties() {
        return {
+         _showDetails: {
+           type: Boolean,
+           computed: '_displayDetails(details, readOnly)'
+         },
+
          _stars: {
            type: Array,
-           value: ["star", "star", "star-half", "star", "star-border"]
+           value: function() {
+             return ["star", "star", "star", "star", "star"];
+           }
          },
 
          // number of stars assigned for score
@@ -88,9 +107,22 @@
            value: 0
          },
 
+         // sets stars to editable and hides rating details
          readOnly: {
            type: Boolean,
            value: false
+         },
+
+         // show rating and votes when readOnly is true
+         details: {
+           type: Boolean,
+           value: false
+         },
+
+         // number of votes to display
+         votes: {
+           type: Number,
+           value: 0
          }
        }
      }
@@ -125,6 +157,10 @@
        var array = this._stars;
        this._stars = [];
        this._stars = array;
+     }
+
+     _displayDetails(details, readOnly) {
+       return details === true && readOnly === true;
      }
    }
 
