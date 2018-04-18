@@ -16,7 +16,11 @@
     <link rel="import" href="../star-rating.html">
 
     <custom-style>
-      <style include="demo-pages-shared-styles"></style>
+      <style include="demo-pages-shared-styles">
+       .blue {
+         --star-color: blue;
+       }
+      </style>
     </custom-style>
   </head>
   <body>
@@ -26,6 +30,20 @@
       <demo-snippet>
         <template>
           <star-rating rating="4" read-only></star-rating>
+        </template>
+      </demo-snippet>
+
+      <h3>Rating with details</h3>
+      <demo-snippet>
+        <template>
+          <star-rating rating="4.7" votes="51" details read-only></star-rating>
+        </template>
+      </demo-snippet>
+
+      <h3>Rating with custom color</h3>
+      <demo-snippet>
+        <template>
+          <star-rating class="blue" rating="4.7" votes="51" details read-only></star-rating>
         </template>
       </demo-snippet>
 
