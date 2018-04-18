@@ -1,38 +1,38 @@
-# \<star-rating\>
+# \<star-rating\> [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/greenyouse/star-rating)
 
-Shows a five star rating, based on `acordeonl/star-rating`
+Five star rating element with material design style.
 
-## Install the Polymer-CLI
-
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your application locally.
-
-## Viewing Your Application
-
+<!-- 
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="star-rating.html">
+
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
 ```
+ -->
+ 
+ ```html
+ <star-rating rating="3" read-only></star-rating>
+ <star-rating rating="4.7" votes="51" details read-only></star-rating>
+ <star-rating rating="2.5"></star-rating>
+ ```
 
-## Building Your Application
+## Installation
 
-```
-$ polymer build
-```
-
-This will create a `build/` folder with `bundled/` and `unbundled/` sub-folders
-containing a bundled (Vulcanized) and unbundled builds, both run through HTML,
-CSS, and JS optimizers.
-
-You can serve the built versions by giving `polymer serve` a folder to serve
-from:
-
-```
-$ polymer serve build/bundled
+```sh
+$ bower install greenyouse/star-rating --save
 ```
 
-## Running Tests
+## Import
 
-```
-$ polymer test
+```html
+<link rel="import" href="../bower_components/star-rating/star-rating.html">
 ```
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+## Credits
+
+This is a fork of [covas/star-rating](https://github.com/covas/star-rating) and [acordeonl/star-rating](https://github.com/acordeonl/star-rating).
