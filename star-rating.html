@@ -10,6 +10,10 @@
   <template>
     <custom-style>
       <style include="iron-flex">
+       :host {
+         @apply --star-rating
+       }
+
        iron-icon {
          color: var(--star-color, #faca43);
        }
@@ -47,6 +51,8 @@
          font-size: 16px;
          font-weight: 400;
          line-height: 24px;
+
+         @apply --star-rating-details
        }
       </style>
     </custom-style>
@@ -81,6 +87,8 @@
     *  Custom property | Description | Default
     *  ----------------|-------------|----------
     *  `--star-color` | Color set for stars | `#faca43`
+    *  `--star-rating` | Mixin for star-rating | `{}`
+    *  `--star-rating-detail` | Mixin for details | `{}`
     *  `--empty-color` | Color set for blank stars | `#bebebe`
     *  `--detail-color` | Text color for details | `#999999`
     *
