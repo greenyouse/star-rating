@@ -17,7 +17,8 @@
        paper-icon-button {
          color: var(--star-color, #faca43);
          padding: 0px;
-         width: 24px;
+         /* offset by 1px for svg/background gap */
+         width: 25px;
          height: 24px;
          --paper-icon-button-disabled: {
            color: var(--star-color, #faca43);
@@ -34,6 +35,8 @@
        .half-star {
          color: var(--star-color, #faca43);
          background-image: url('./right-star.svg');
+         /* offset by 1px for svg/background gap */
+         --iron-icon-width: 25px;
        }
 
        .details {
