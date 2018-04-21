@@ -114,7 +114,8 @@
          // number of stars assigned for score
          rating: {
            type: Number,
-           value: 0
+           value: 0,
+           notify: true
          },
 
          // sets stars to editable and hides rating details
@@ -167,14 +168,6 @@
        var array = this._stars;
        this._stars = [];
        this._stars = array;
-
-       // update event for changes to star rating
-       var details = {
-         bubbles: true,
-         composed: true,
-         rating: this.rating
-       };
-       this.dispatchEvent(new CustomEvent('star-rating-updated'), details);
      }
 
      _displayDetails(details, readOnly) {
